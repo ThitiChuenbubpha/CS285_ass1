@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./flight_files/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style-for-searchFlights.css">
+</head>
+
+<body background="./flight_files/pn.jpg" style="background-repeat:no-repeat;">
+
+    
+  </div>
+
+  <div class="container"><br>
+  <h1>FLIGHT</h1><br>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <label ng-bind="name" for="fromCity">Flying From</label><br> <br>
+          <input class="form-control" name="fromCity" id="fromCity" placeholder="From City">
+        </div>
+        <div class="col-sm-3">
+          <label for="toCity">Flying to</label><br><br>
+          <input type="text" class="form-control" name="toCity" id="toCity" placeholder="To City">
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <label for="departing">Departing</label><br>
+          <select class="form-control" name="departing" id="departing">
+            <option id="BKK">Suvarnabumi (BKK)</option>
+            <option id="DMK">Donmueng (DMK)</option>
+            <option id="CDG">Charles de Gaulle (CDG)</option>
+          </select><br>
+        </div>
+        <div class="col-sm-3">
+          <label for="returning">Returning</label><br>
+          <select class="form-control" name="returning" id="returning">
+            <option id="BKK">Suvarnabumi (BKK)</option>
+            <option id="DMK">Donmueng (DMK)</option>
+            <option id="CDG">Charles de Gaulle (CDG)</option>
+          </select>
+          
+        </div>
+        
+      </div>
+      <div class="radio">
+        <label><input type="radio" name="directionOptRadio" value="ONE_WAY">One Way</label>
+      <br>
+      <label><input type="radio" name="directionOptRadio" value="ROUND_TRIPS" checked="">Round Trip</label>
+    </div>
+      <br>
+
+      <div class="row">
+        <div class="col-sm-3">
+           <label for="adults">Adult(s)</label><br>
+          <select class="form-control" name="adults" id="adults">    
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </div>
+
+        <div class="col-sm-3">
+          <label for="cabin">Cabin</label><br>
+          <select class="form-control" name="cabin" id="cabin">
+            <option value="Economy">Economy Class</option>
+            <option value="Business">Business Class</option>
+            <option value="First">First Class</option>
+          </select>
+        </div>
+
+      </div><br>
+      <a href="displayFlights.html">
+      <button>Search</button>
+      </a>
+  </div>
+ 
+
+</body>
+</html>

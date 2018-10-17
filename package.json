@@ -1,0 +1,19 @@
+{
+  "name": "cs285_assing1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "live-server": "^1.2.0"
+  },
+  "scripts": {
+    "serve": "live-server ."
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {},
+  "description": ""
+}
