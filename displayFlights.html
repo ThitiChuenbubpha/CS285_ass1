@@ -60,7 +60,9 @@
         document.getElementById(view).style.display = "block";
         evt.currentTarget.className += " active";
     }
-    
+    const urls = {
+      getFlights: 'https://api.myjson.com/bins/120nec'
+    };
 
     const getFlights = () =>
       axios
