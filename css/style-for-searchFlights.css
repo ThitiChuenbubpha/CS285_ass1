@@ -1,0 +1,44 @@
+button{
+    font-size: 20px;
+    color: white;
+    background-color: orange;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+    text-shadow: black 0.5em 0.5em 0.7em;
+    
+ 
+}
+body {
+    font-family: Arial;
+}
+h1{
+    color: cyan;
+    font-family: fantasy;
+    font-size: 60px;
+}
+label{
+    font-family: sans-serif;
+    font-size: 25px;
+}
+.bg {
+
+    background-image: url("planejpg.jpg");
+
+    height: 100%; 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

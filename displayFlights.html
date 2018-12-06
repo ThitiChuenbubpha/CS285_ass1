@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./flight_files/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style-displayFlight-page.css">
+</head>
+
+<body background="./flight_files/pn.jpg" style="background-repeat:no-repeat;">
+
+    
+  </div>
+
+  <div class="container"><br>
+  <a href="searchFlights.html">
+  <h1>&larr;Back</h1><br></a>
+  <div class="tab">
+    <button class="tablinks" onclick="view(event, 'ListView')">List View</button>
+    <button class="tablinks" onclick="view(event, 'MatrixView')">Matrix View</button>
+  </div>
+  <div id="ListView" class="tabcontent">
+    <p id="txtFlightsResult">x of x flights shown-one way</p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" title="price">Price</th>
+          <th scope="col">Airline</th>
+          <th scope="col">Take-off</th>
+          <th scope="col">Landing</th>
+          <th scope="col">Stop Duration</th>
+        </tr>
+      </thead>
+      <tbody id="tableResultFlightsContent">
+      </tbody>
+    </table> 
+  </div>
+  
+  <div id="MatrixView" class="tabcontent">
+    <p id="txtFlightsResult">x of x flights shown-one way</p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" title="price">Price</th>
+          <th scope="col">Airline</th>
+          <th scope="col">Take-off</th>
+          <th scope="col">Landing</th>
+          <th scope="col">Stop Duration</th>
+        </tr>
+      </thead>
+      <tbody id="tableResultFlightsContent">
+      </tbody>
+    </table> 
+  </div>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="node_modules/axios/dist/axios.min.js"></script>
+ 
+  <script>
+    function view(evt, view) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(view).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    const urls = {
+      getFlights: 'https://api.myjson.com/bins/120nec'
+    };
+
+    const getFlights = () =>
+      axios
+        .get(urls.getFlights)
+        .then(res => res.data)
+        .then(res => res);
+
+  </script>
+  <script>
+    const setFlightTable = (data) => {
+      const tableResultFlightsContent = $('#tableResultFlightsContent')
+      let numFlights = 0;
+      data.map(item => {
+        tableResultFlightsContent.append(`
+          <tr>
+            <th scope='row' class='font-weight-bold text-danger'>$${item.price}</td>
+            <td>${item.airline}</th>
+            <td>${item.takeoff}</td>
+            <td>${item.landing}</td>
+            <td>${item.stop_duration}<br>
+              <a data-toggle="collapse" data-target="#detail test">detail</a>  
+            </td>
+          </tr>
+    <tr id="detail test" class="collapse">
+		<td colspan="5">
+		  <div class="container-fluid"> 
+			<h3><font color="blue">OUTBOUND</font></h3>
+			<p> test October 1 th,2015</p>
+			<div class="col-sm-3 "> 
+			<img align="middle" src="/Aot.jpg" width="120" height="120"></div>
+			<div style="display: inline-block">
+			<span> Time : 10.00 </span>
+			<h5> AirPort : Suvanabhumi </h5>
+				<h5>Terminal : </h5>
+			<hr>
+			<span> Time : 23.00</span>
+			<h5> AirPort : Paris Charles-de-Gaulle </h5>
+			<h5>Terminal : 2C</h5>
+			
+			</div>
+		  </div>
+		  <p>flight# : SU 217 | aircraft type :3333 | operatedby : Aeroflc</p>
+		  <a href="/flight/test
+      }/check-out"><button  class="btn-primary btn btn-lg"> Select</button></a>
+		</td>
+	  </tr>
+        `)
+        ++numFlights
+      })
+      $('#txtFlightsResult').html(`<span class="badge badge-pill badge-secondary">${numFlights}</span> of <span class="badge badge-pill badge-secondary">${numFlights}</span> flights shown-one way`)
+    }
+  
+    $(() => {
+      getFlights().then(res => {
+        setFlightTable(res.data)
+      })
+    })
+  </script>
+</body>
+</html>
