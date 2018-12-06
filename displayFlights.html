@@ -23,7 +23,20 @@
     <button class="tablinks" onclick="view(event, 'MatrixView')">Matrix View</button>
   </div>
   <div id="ListView" class="tabcontent">
-    <p>ODO write content.</p>
+    <p id="txtFlightsResult">x of x flights shown-one way</p>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" title="price">Price</th>
+          <th scope="col">Airline</th>
+          <th scope="col">Take-off</th>
+          <th scope="col">Landing</th>
+          <th scope="col">Stop Duration</th>
+        </tr>
+      </thead>
+      <tbody id="tableResultFlightsContent">
+      </tbody>
+    </table> 
   </div>
   
   <div id="MatrixView" class="tabcontent">
@@ -82,8 +95,33 @@
             <td>${item.airline}</th>
             <td>${item.takeoff}</td>
             <td>${item.landing}</td>
-            <td>${item.stop_duration}</td>
+            <td>${item.stop_duration}<br>
+              <a data-toggle="collapse" data-target="#detailtest">detail</a>  
+            </td>
           </tr>
+    <tr id="detailtest" class="collapse">
+		<td colspan="5">
+		  <div class="container-fluid"> 
+			<h3><font color="blue">OUTBOUND</font></h3>
+			<p> test October 1 th,2015</p>
+			<div class="col-sm-12 "> 
+			<img align="middle" src="/Aot.jpg" width="120" height="120"></div><br>
+			<div style="display: inline-block">
+			<br><span> Time : 10.00 </span>
+			<h5> AirPort : Suvanabhumi </h5>
+				<h5>Terminal : </h5>
+			<hr>
+			<span> Time : 23.00</span>
+			<h5> AirPort : Paris Charles-de-Gaulle </h5>
+			<h5>Terminal : 2C</h5>
+			
+			</div>
+		  </div>
+		  <p>flight# : SU 217 | aircraft type :3333 | operatedby : Aeroflc</p>
+		  <a href="/flight/test
+      }/check-out"><button  class="btn-primary btn btn-lg"> Select</button></a>
+		</td>
+	  </tr>
         `)
         ++numFlights
       })
